@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "name": "Blue T-Shirt",
+    "image": "blue_tshirt.png",
+    "url_id": "601a36da-64c4-4438-b3d5-3a0bc120809e_1713286589.7133932.png"
+  },
+  {
+    "id": 2,
+    "name": "Black Trousers",
+    "image": "black_trouser.png",
+    "url_id": "5bea9ebc-2964-4309-96b5-b973cdfe05b8_1713286612.1411679.png"
+  },
+  {
+    "id": 3,
+    "name": "Red Hoodie",
+    "image": "red_hoodie.png",
+    "url_id": "116b7036-42ff-43a2-8572-ab2e37241f10_1713286572.3063345.png"
+  },
+  {
+    "id": 4,
+    "name": "Green Dress",
+    "image": "green_dress.png",
+    "button": "Add to Cart",
+    "url_id": "152d06f5-7e10-4d11-83ee-0400aaeea665_1713286575.2839375.png"
+  },
+  {
+    "id": 5,
+    "name": "Yellow Summer Top",
+    "image": "yellow_top.png",
+    "button": "Add to Cart",
+    "url_id": "3bb56602-a17a-43de-813f-a46f68888af4_1713286569.501538.png"
+  },
+  {
+    "id": 6,
+    "name": "Running Shoes",
+    "image": "black_shoes.png",
+    "button": "Add to Cart",
+    "url_id": "7992322b-623b-4012-adf5-28186612b980_1713286615.094752.png"
+  }
+]
