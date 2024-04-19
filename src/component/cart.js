@@ -45,17 +45,22 @@ export function Cart({
     <Modal show={showcart} onClose={closeCart}>
       <div className="cart-container">
         <div className="cart-heading">Cart</div>
-        {cartItems.map((item) => (
-          <CartItems
-            key={item.id}
-            id={item.id}
-            name={item.name}
-            url={item.url}
-            qty={item.quantity}
-            onIncQuantity={onIncQuantity}
-            onDecQuantity={onDecQuantity}
-          />
-        ))}
+
+        {cartItems.length > 0 ? (
+          cartItems.map((item) => (
+            <CartItems
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              url={item.url}
+              qty={item.quantity}
+              onIncQuantity={onIncQuantity}
+              onDecQuantity={onDecQuantity}
+            />
+          ))
+        ) : (
+          <p>Cart is empty :)</p>
+        )}
         <div className="cart-buttons">
           <button className="black-button close-cart" onClick={closeCart}>
             Close

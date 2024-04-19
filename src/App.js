@@ -2,14 +2,26 @@ import { Nav } from "./component/Nav";
 import { Products } from "./component/Products";
 import { useState } from "react";
 import { Cart } from "./component/cart.js";
-
+import AddProduct from "./component/addProducts.js";
+import data from "../src/utils/data.json";
+import def from "../src/utils/default.json";
 function App() {
   const [showcart, setShowcart] = useState(false); // for modal
+  const [productData, setproductData] = useState(data); // for showing the cart
+
   function openCart() {
     setShowcart(true);
   }
   function closeCart() {
     setShowcart(false);
+  }
+
+  const [showAddtoCart, setShowAddtoCart] = useState(false);
+  function openAddtoCart() {
+    setShowAddtoCart(true);
+  }
+  function closeAddtoCart() {
+    setShowAddtoCart(false);
   }
 
   const [cartItems, setCartItems] = useState([]); // for showing the cart
@@ -61,16 +73,43 @@ function App() {
 
     setCartItems(updatedCart);
   }
+
+  function addproductMain(newProd) {
+    // console.log(def.url_id);
+
+    const updatedProduct = [
+      ...productData,
+      {
+        id: productData.length + 1,
+        name: newProd,
+        url_id: def.url_id,
+        quantity: 1,
+      },
+    ];
+    // console.log(updatedProduct);
+    setproductData(updatedProduct);
+  }
   return (
     <div>
-      <Nav openCart={openCart} cartItems={cartItems} />
-      <Products onAddtoCart={handleAddtoCart} />
+      <Nav
+        openCart={openCart}
+        cartItems={cartItems}
+        openAddtoCart={openAddtoCart}
+      />
+      <Products onAddtoCart={handleAddtoCart} productData={productData} />
       <Cart
         showcart={showcart}
         closeCart={closeCart}
         cartItems={cartItems}
         onIncQuantity={onIncQuantity}
         onDecQuantity={onDecQuantity}
+        setCartItems={setCartItems}
+      />
+      <AddProduct
+        showAddtoCart={showAddtoCart}
+        openAddtoCart={openAddtoCart}
+        closeAddtoCart={closeAddtoCart}
+        addproductMain={addproductMain}
       />
     </div>
   );

@@ -1,6 +1,5 @@
 import React from "react";
 import "../styles/products.css";
-import productData from "../utils/data.json";
 import urlLink from "../utils/links.json";
 
 function ProductItem({ id, name, url_id, onAddtoCart }) {
@@ -18,7 +17,7 @@ function ProductItem({ id, name, url_id, onAddtoCart }) {
   );
 }
 
-export function Products({ onAddtoCart }) {
+export function Products({ onAddtoCart, productData }) {
   return (
     <div className="products-container">
       {productData.map((item) => (
