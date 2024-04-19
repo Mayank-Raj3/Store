@@ -21,3 +21,5 @@ export function Nav({ openCart, cartItems, openAddtoCart }) {
     </div>
   );
 }
+
+// In navigation / Header we have 2 butoons that is used to open it

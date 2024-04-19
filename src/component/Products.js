@@ -32,3 +32,5 @@ export function Products({ onAddtoCart, productData }) {
     </div>
   );
 }
+
+// for body :-product compo

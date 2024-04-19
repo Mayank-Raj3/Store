@@ -6,9 +6,10 @@ import AddProduct from "./component/addProducts.js";
 import data from "../src/utils/data.json";
 import def from "../src/utils/default.json";
 function App() {
-  const [showcart, setShowcart] = useState(false); // for modal
-  const [productData, setproductData] = useState(data); // for showing the cart
+  const [showcart, setShowcart] = useState(false); // for showing cart
+  const [productData, setproductData] = useState(data); // static product data
 
+  // functions to open and close carts
   function openCart() {
     setShowcart(true);
   }
@@ -16,6 +17,7 @@ function App() {
     setShowcart(false);
   }
 
+  // functions to open and close addtoproduts
   const [showAddtoCart, setShowAddtoCart] = useState(false);
   function openAddtoCart() {
     setShowAddtoCart(true);
@@ -24,9 +26,11 @@ function App() {
     setShowAddtoCart(false);
   }
 
+  //  for crud operatings in the cart
   const [cartItems, setCartItems] = useState([]); // for showing the cart
 
   function handleAddtoCart(id1, name1, url1) {
+    //  for avoing copy with references we used destu.
     const updatedArray = [
       ...cartItems,
       {
@@ -36,8 +40,6 @@ function App() {
         quantity: 1,
       },
     ];
-    // console.log(updatedArray); // logging the updated array
-    // console.log(cartItems); // logging the state after update
 
     const idsArray = cartItems.map((item) => item.id);
     if (idsArray.indexOf(id1) === -1) setCartItems(updatedArray);
@@ -75,8 +77,6 @@ function App() {
   }
 
   function addproductMain(newProd) {
-    // console.log(def.url_id);
-
     const updatedProduct = [
       ...productData,
       {
@@ -86,7 +86,6 @@ function App() {
         quantity: 1,
       },
     ];
-    // console.log(updatedProduct);
     setproductData(updatedProduct);
   }
   return (
