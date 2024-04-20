@@ -17,6 +17,11 @@ This is a basic CRUD (Create, Read, Update, Delete) application built using Reac
   - **Products**: Displays product cards and handles CRUD operations on products.
   - **AddProducts**: Handles adding new products with two-way binding.
 
+## useRef vs useState for form handling
+
+- With useStates we geting the variable same time (twoway bindling)
+- but with useRef we only get the value inside input form when we click the addtocart button
+
 ## How to Run
 
 1. Clone this repository to your local machine.
