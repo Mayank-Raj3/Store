@@ -8,6 +8,7 @@ This is a basic CRUD (Create, Read, Update, Delete) application built using Reac
 
 - **CRUD Operations**: Allows users to create, read , and delete products.
 - **State Management**: Utilizes React hooks such as useState for managing state within components.
+- **Updated-state-management**: used AppContext to avoid Props Drilling
 - **Form Handling**: Implements form handling using useRef for better control and performance.
 - **Portal Rendering**: Utilizes React portals for rendering components in different parts of the DOM.
 - **Component Structure**:

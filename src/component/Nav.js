@@ -1,6 +1,9 @@
 import "../styles/header.css";
+import { useContext } from "react";
+import Appcontext from "../store/app-context";
 
-export function Nav({ openCart, cartItems, openAddtoCart }) {
+export function Nav() {
+  const { openCart, cartItems, openAddtoCart } = useContext(Appcontext);
   return (
     <div className="header">
       <h1>My Store</h1>

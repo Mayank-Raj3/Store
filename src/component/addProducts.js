@@ -1,14 +1,12 @@
 import Modal from "./Modal";
 import "../styles/Modal.css";
 import "../styles/addtoprod.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Appcontext from "../store/app-context";
 
-function AddProduct({
-  showAddtoCart,
-  openAddtoCart,
-  closeAddtoCart,
-  addproductMain,
-}) {
+function AddProduct() {
+  const { showAddtoCart, openAddtoCart, closeAddtoCart, addproductMain } =
+    useContext(Appcontext);
   // m2 using useRef
   // const nameRef = useRef();
 

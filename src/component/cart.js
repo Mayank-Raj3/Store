@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import "../styles/cart.css";
 import Modal from "./Modal";
+import Appcontext from "../store/app-context";
 
 function CartItems({ id, name, url, qty, onIncQuantity, onDecQuantity }) {
   return (
@@ -34,13 +35,9 @@ function CartItems({ id, name, url, qty, onIncQuantity, onDecQuantity }) {
   );
 }
 
-export function Cart({
-  showcart,
-  closeCart,
-  cartItems,
-  onIncQuantity,
-  onDecQuantity,
-}) {
+export function Cart() {
+  const { showcart, closeCart, cartItems, onIncQuantity, onDecQuantity } =
+    useContext(Appcontext);
   return (
     <Modal show={showcart} onClose={closeCart}>
       <div className="cart-container">
