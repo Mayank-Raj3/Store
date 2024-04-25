@@ -3,6 +3,8 @@ import "../styles/products.css";
 import urlLink from "../utils/links.json";
 import Appcontext from "../store/app-context";
 import { useContext } from "react";
+import Shimmer from "./Shimmer";
+
 function ProductItem({ id, name, url_id, handleAddtoCart }) {
   return (
     <div key={id} className="product">
@@ -19,16 +21,19 @@ function ProductItem({ id, name, url_id, handleAddtoCart }) {
 }
 
 export function Products() {
-  const { handleAddtoCart, productData } = useContext(Appcontext);
-
+  const { handleAddtoCart, productData, loading } = useContext(Appcontext);
+  if (!loading) {
+    // return <h1>Loding...</h1>;
+    return <Shimmer />;
+  }
   return (
     <div className="products-container">
-      {productData.map((item) => (
+      {Object.keys(productData).map((k) => (
         <ProductItem
-          key={item.id}
-          id={item.id}
-          name={item.name}
-          url_id={item.url_id}
+          key={productData[k].id}
+          id={productData[k].id}
+          name={productData[k].name}
+          url_id={productData[k].url_id}
           handleAddtoCart={handleAddtoCart}
         />
       ))}

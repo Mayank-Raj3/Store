@@ -1,12 +1,56 @@
-import React from "react";
-import data from "../utils/data.json";
+import React, { useEffect } from "react";
+// import data from "../utils/data.json";
 import def from "../utils/default.json";
 import { useState } from "react";
 import Appcontext from "./app-context";
 
 function AppcontextProvider({ children }) {
   const [showcart, setShowcart] = useState(false); // for showing cart
-  const [productData, setproductData] = useState(data); // static product data
+  const [productData, setproductData] = useState({}); // static product data
+  const [loading, setLoding] = useState(false);
+
+  useEffect(() => {
+    async function setData() {
+      // https://store-dad40-default-rtdb.firebaseio.com/products
+      try {
+        setTimeout(async () => {
+          const res = await fetch(
+            "https://store-dad40-default-rtdb.firebaseio.com/products.json"
+          );
+          const data = await res.json();
+          // console.log(data);
+          setLoding(true);
+          setproductData(data);
+        }, 1000);
+      } catch (error) {
+        throw error;
+      }
+    }
+    setData();
+  }, []);
+
+  /*
+  for updateing in backend
+
+  const sendProductData = async (product) => {
+    try {
+      await fetch(
+        "https://store-dad40-default-rtdb.firebaseio.com/products.json",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(product),
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+
+  */
 
   // functions to open and close carts
   function openCart() {
@@ -101,6 +145,7 @@ function AppcontextProvider({ children }) {
     onDecQuantity,
     addproductMain,
     cartItems,
+    loading,
   };
 
   return (

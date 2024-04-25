@@ -13,6 +13,7 @@ const Appcontext = createContext({
   onDecQuantity: () => {},
   addproductMain: () => {},
   cartItems: [],
+  loading: false,
 });
 
 export default Appcontext;
